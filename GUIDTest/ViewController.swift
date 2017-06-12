@@ -70,7 +70,10 @@ extension ViewController: AGSGeoViewTouchDelegate {
     private func createFeature(_ index: Int, _ mapPoint: AGSPoint) {
         let featureService = featureServices[index]
         let featureTable = featureTables[index]
-        let guidValue = "{8B4D4B7B-0853-4FB4-8DB1-DB490E5E4808}"
+        //let guidValue = "{8B4D4B7B-0853-4FB4-8DB1-DB490E5E4808}" // plain String, with brackets
+        //let guidValue = "8B4D4B7B-0853-4FB4-8DB1-DB490E5E4808" // plain String, no brackets
+        //let guidValue = UUID(uuidString: "{8B4D4B7B-0853-4FB4-8DB1-DB490E5E4808}")! // UUID, brackets
+        let guidValue = UUID(uuidString: "8B4D4B7B-0853-4FB4-8DB1-DB490E5E4808")! // UUID, no brackets
         let attributes = [featureService.guidFieldName: guidValue]
         let createdFeature = featureTable.createFeature(attributes: attributes, geometry: mapPoint)
         featureTable.add(createdFeature) { error in
