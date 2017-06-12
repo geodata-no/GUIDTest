@@ -55,18 +55,7 @@ extension ViewController: AGSGeoViewTouchDelegate {
             self?.createFeature(index, mapPoint)
         }
     }
-    
-    private func promptUser(_ prompt: String, _ options: [String], _ cancel: String?, completion: @escaping (Int) -> ()) {
-        let alertController = UIAlertController(title: "Prompt", message: prompt, preferredStyle: .actionSheet)
-        for (index, option) in options.enumerated() {
-            alertController.addAction(UIAlertAction(title: option, style: .default, handler: { _ in completion(index) }))
-        }
-        if let cancelPrompt = cancel {
-            alertController.addAction(UIAlertAction(title: cancelPrompt, style: .cancel))
-        }
-        present(alertController, animated: true, completion: nil)
-    }
-    
+        
     private func createFeature(_ index: Int, _ mapPoint: AGSPoint) {
         let featureService = featureServices[index]
         let featureTable = featureTables[index]
@@ -89,11 +78,13 @@ extension ViewController: AGSGeoViewTouchDelegate {
     }
 }
 
-let sqlServerFeatureService = FeatureService(guidFieldName: "RunarGuid", featureTableURL: URL(string: "https://mildir-utvikling.geodata.no/support/rest/services/GuidTest/FeatureServer/0")!)
-let agolServerFeatureService = FeatureService(guidFieldName: "GUID", featureTableURL: URL(string: "http://services.arcgis.com/2JyTvMWQSnM2Vi8q/ArcGIS/rest/services/GUID/FeatureServer/0")!)
+let sqlServerFeatureService = FeatureService(guidFieldName: "RunarGuid", featureTableURL:
+    URL(string: "https://mildir-utvikling.geodata.no/support/rest/services/GuidTest/FeatureServer/0")!)
+
+let agolServerFeatureService = FeatureService(guidFieldName: "GUID", featureTableURL:
+    URL(string: "http://services.arcgis.com/2JyTvMWQSnM2Vi8q/ArcGIS/rest/services/GUID/FeatureServer/0")!)
 
 let featureServices = [agolServerFeatureService, sqlServerFeatureService]
-
 
 struct FeatureService {
     let guidFieldName: String
