@@ -3,7 +3,7 @@ Example project that shows how writing to a GUID field on an ArcGIS Server backe
 
 # INSTALLATION
 
-Clone (or fork) and rund `pod install`. Build and run on simulator or device. The app does not require a hardware device.
+Clone (or fork) and run `pod install`. Build and run on simulator or device. The app does not require a hardware device.
 
 # USAGE
 
@@ -16,4 +16,4 @@ For reference, several methods of setting the field are supplied as comments in 
 I hope you are able to discover (and fix) the problem. Please do not hesitate to contact me about questions to the code or the ArcGIS environment.
 
 Runar Svendsen
-mailto: runar.svendsen@geodata.no
+runar.svendsen@geodata.no
