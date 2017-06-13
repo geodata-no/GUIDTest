@@ -1,6 +1,9 @@
 # GUIDTest
 Example project that shows how writing to a GUID field on an ArcGIS Server backed by MS SQLServer will fail.
 
+# ERROR description
+The error happens when trying to save a feature on a layer which includes a GUID field (eg. referencing a GlobalID field in a related table / layer). It only appears to fail when saving to an ArcGIS server backed by MS Sql Server. I haven't tested this code against a local geodatabase, just two different online layers. I believe this is the same error discussed in https://geonet.esri.com/message/92192, which was fixed in 10.2.3, but it has reappeared in Quartz (v 100.0) for iOS.
+
 # INSTALLATION
 
 Clone (or fork) and run `pod install`. Build and run on simulator or device. The app does not require a hardware device.
